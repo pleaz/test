@@ -20,5 +20,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/upload', 'UploadController@show')->name('upload.show');
-Route::post('/upload', 'UploadController@store')->name('upload.store');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/files/create', 'FileController@create')->name('file.create');
+    Route::post('/files', 'FileController@store')->name('file.store');
+    Route::get('/files', 'FileController@index')->name('file.index');
+    Route::delete('/files/{file}', 'FileController@destroy')->name('file.destroy');
+});
+
+Route::get('/files/{file}', 'FileController@show')->name('file.show');

@@ -15,7 +15,7 @@
                     @endif
 
                     You are logged in!
-                        <a href="{{route('upload')}}" class="btn btn-primary">Upload file</a>
+                        <a href="{{route('file.create')}}" class="btn btn-primary">Upload file</a>
                 </div>
             </div>
         </div>
